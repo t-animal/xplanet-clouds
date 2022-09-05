@@ -1,0 +1,7 @@
+[earth]
+image=merged.01.jpg
+night_map=night_map_marked.jpg
+bump_map=bump_map.png
+cloud_map=clouds_5400.png
+cloud_gamma=0.6
+cloud_threshold=90
