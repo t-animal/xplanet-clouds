@@ -1,7 +1,6 @@
 [earth]
-image=input/merged.MONTH.jpg
-night_map=input/night_map_marked.jpg
-bump_map=input/bump_map.png
-cloud_map=clouds_640.gif
-cloud_gamma=0.6
-cloud_ssec=true
+image=../input-images/merged.MONTH.jpg
+night_map=../input-images/night_map_marked.jpg
+bump_map=../input-images/bump_map.png
+cloud_map=../earth_clouds_leveled.png
+cloud_gamma=1
