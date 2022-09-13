@@ -1,0 +1,17 @@
+name: Download Clouds
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 */6 * * *'  
+
+jobs:
+  download:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: scripts/download-and-preprocess.sh
+      - uses: actions/upload-artifact@v3
+        with:
+          name: images
+          path: earth*png
