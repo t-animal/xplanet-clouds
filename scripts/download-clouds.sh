@@ -9,13 +9,18 @@ COLS=3
 ROWS=3
 
 if [[ $# -lt 2 ]]; then 
-  echo "usage: $0 <date as YYYYMMDD> hour"
+  echo "usage: $0 <date as YYYYMMDD> hour [output-file]"
   echo "To download newest use: $0 \$(date +%Y%m%d) \$(date +%H)"
   exit 1
 fi
 
 DATE="$1"
 TIME="$2"0000
+OUTPUT=$3
+
+if [[ "$OUTPUT" == "" ]]; then
+  OUTPUT="../cloud-downloads/clouds_2048_${DATE}_${TIME}.png"
+fi
 
 BASE="https://re.ssec.wisc.edu/api/image?products=globalir_${DATE}_${TIME}&equirectangular=true"
 
@@ -36,4 +41,4 @@ done
 
 echo -e "\rDownloads done. Stitching..."
 cd patches
-montage -mode concatenate -tile 8x4 zoom* "../cloud-downloads/clouds_2048_${DATE}_${TIME}.png"
+montage -mode concatenate -tile 8x4 zoom* "$OUTPUT"
