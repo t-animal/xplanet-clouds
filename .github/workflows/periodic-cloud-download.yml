@@ -5,16 +5,31 @@ on:
   schedule:
     - cron: '0 */6 * * *'  
 
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   download:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
         with:
           ref: only-scripts
       - run: scripts/download-and-preprocess.sh
-      - uses: actions/upload-artifact@v3
+      - name: Setup Pages
+        uses: actions/configure-pages@v2
+      - name: Upload artifact for gh pages
+        uses: actions/upload-pages-artifact@v1
         with:
-          name: images
-          path: earth*png
+          path: .
           retention-days: 1
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
