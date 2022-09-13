@@ -1,6 +1,0 @@
-[earth]
-image=../input-images/merged.09.jpg
-night_map=../input-images/night_map_marked.jpg
-bump_map=../input-images/bump_map.png
-cloud_map=../earth_clouds_leveled.png
-cloud_gamma=1
