@@ -10,6 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          ref: only-scripts
       - run: scripts/download-and-preprocess.sh
       - uses: actions/upload-artifact@v3
         with:
