@@ -7,7 +7,7 @@ if [[ "$1" == "--preprocess" ]]; then
 fi
 
 if [[ "$1" == "--download" ]]; then
-  wget -N https://t-animal.github.io/xplanet-clouds/earth_clouds_leveled_scaled.png
+  wget --quiet -N https://t-animal.github.io/xplanet-clouds/earth_clouds_leveled_scaled.png
 fi
 
 sed -s s/MONTH/$(date +%m)/ scripts/config.template > config
