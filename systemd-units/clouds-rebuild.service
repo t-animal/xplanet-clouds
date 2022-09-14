@@ -1,0 +1,6 @@
+[Unit]
+Description=Rebuilds the desktop wallpaper for current cloud and terminator
+
+[Service]
+ExecStart=/home/tilman/projekte/privat/xplanet-clouds/scripts/combine-with-clouds.sh --download
+Type=oneshot
