@@ -2,8 +2,14 @@
 
 set -e
 
-LAST_DATE_UTC=$(date --date=@$(($(date +%s)-3600)) --utc +%Y%m%d)
-LAST_HOUR_UTC=$(date --date=@$(($(date +%s)-3600)) --utc +%H)
+HOUR_OFFSET="$1"
+if [[ "$1" -ne "" ]]; then
+	HOUR_OFFSET=1
+fi
+SECOND_OFFSET=$(("$1" * 3600))
+
+LAST_DATE_UTC=$(date --date=@$(($(date +%s)-$SECOND_OFFSET)) --utc +%Y%m%d)
+LAST_HOUR_UTC=$(date --date=@$(($(date +%s)-$SECOND_OFFSET)) --utc +%H)
 
 cd "$(dirname $0)"/..
 
