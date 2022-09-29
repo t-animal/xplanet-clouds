@@ -3,10 +3,10 @@
 set -e
 
 HOUR_OFFSET="$1"
-if [[ "$1" -ne "" ]]; then
+if [[ "$1" == "" ]]; then
 	HOUR_OFFSET=1
 fi
-SECOND_OFFSET=$(("$1" * 3600))
+SECOND_OFFSET=$(("$HOUR_OFFSET" * 3600))
 
 LAST_DATE_UTC=$(date --date=@$(($(date +%s)-$SECOND_OFFSET)) --utc +%Y%m%d)
 LAST_HOUR_UTC=$(date --date=@$(($(date +%s)-$SECOND_OFFSET)) --utc +%H)
