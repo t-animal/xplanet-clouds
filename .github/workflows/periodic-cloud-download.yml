@@ -33,7 +33,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           ref: only-scripts
-      - run: apt install imagemagick
+      - run: sudo apt install imagemagick
       - run: scripts/download-and-preprocess.sh ${{inputs.offset}}
       - name: Setup Pages
         uses: actions/configure-pages@v2
