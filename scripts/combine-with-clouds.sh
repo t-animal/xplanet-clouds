@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -eu
+set -euo pipefail
 
 VERBOSE=0
 DO_PREPROCESS=0
@@ -63,7 +63,7 @@ log "Rendering xplanet output"
 if [[ "$VERBOSE" -eq 1 ]]; then
   xplanet -config config -body earth -geometry 5400x2700 -output earth_terminator_clouds_full.jpg -num_times 1 -projection rectangular
 else
-  xplanet -config config -body earth -geometry 5400x2700 -output earth_terminator_clouds_full.jpg -num_times 1 -projection rectangular  2>&1 | grep -v Resizing | grep -v performance
+  xplanet -config config -body earth -geometry 5400x2700 -output earth_terminator_clouds_full.jpg -num_times 1 -projection rectangular 2>&1 | grep -v Resizing | grep -v performance || true
 fi
 
 log "Cropping final output"
