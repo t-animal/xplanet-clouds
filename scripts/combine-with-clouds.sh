@@ -14,6 +14,10 @@ log() {
 
 usage() {
   echo "usage: $0 [--preprocess] [--download] [--verbose]"
+  echo "  --preprocess   Preprocess the latest cloud download (scaling and leveling)"
+  echo "  --download     Download the already preprocessed cloud map from the web"
+  echo "  --verbose      Enable verbose logging"
+  echo "  -h, --help     Show this help message and exit"
 }
 
 while [[ $# -gt 0 ]]; do
